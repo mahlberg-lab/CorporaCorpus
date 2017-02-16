@@ -1,0 +1,11 @@
+export('corpus_filepath')
+export('ncnb_filepath')
+export('dickens_filepath')
+
+export('corpus_filepaths_all')
+export('ncnb_filepaths_all')
+export('dickens_filepaths_all')
+
+# general
+importFrom('utils', 'packageName',  'packageVersion')
+

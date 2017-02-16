@@ -1,0 +1,33 @@
+%% \VignetteIndexEntry{Corpora}
+%% \VignettePackage{CorporaCorpus}
+
+\SweaveInput{common.tex}
+
+\title{Corpora}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Dickens' Novels}
+\subsection{Included texts}
+\nocite{*}
+\printbibliography[heading=none,keyword=DICKENS]
+
+\subsection{License}
+All of texts are covered by the Project Gutenberg License.
+A copy of the full license can be found at \url{http://gutenberg.org/license}.
+
+
+\section{Nineteenth Century Novels (British)}
+\subsection{Included texts}
+\nocite{*}
+\printbibliography[heading=none,keyword=NCNB]
+
+\subsection{License}
+All of texts are covered by the Project Gutenberg License.
+A copy of the full license can be found at \url{http://gutenberg.org/license}.
+
+\end{document}

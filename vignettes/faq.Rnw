@@ -1,0 +1,123 @@
+%% \VignetteIndexEntry{Frequently Asked Questions}
+%% \VignettePackage{CorporaCorpus}
+
+\SweaveInput{common.tex}
+
+\title{Frequently Asked Questions}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Using the corpora}
+
+\subsection{Getting a corpus file into R}
+Use the \textCode{readLines} function.
+<<>>=
+library(CorporaCorpus)
+
+GE_text <- readLines( corpus_filepath('Great Expectations', corpus = 'dickens') )
+
+head(GE_text, 20)
+@
+Notice that \textCode{readLines} returns a vector of character strings, with one element per line in the file.
+If you want the whole file in a single character string you can \textCode{paste} them together.
+
+<<>>=
+GE_text_collapsed <- paste(GE_text, collapse = " ")
+
+str(GE_text_collapsed, nchar.max = 99)
+@
+
+\subsection{Getting a whole corpus into R}
+What you plan to do with the texts will decide on how you do this, but you will probably need to use the \textCode{corpus\_filepaths\_all} function.
+
+A list of texts as vectors of lines
+<<>>=
+DICKENS_texts <- lapply(corpus_filepaths_all('dickens'), readLines)
+
+str(DICKENS_texts)
+@
+
+Texts as collapsed strings
+<<>>=
+DICKENS_texts_collapsed <- lapply(corpus_filepaths_all('dickens'), FUN = function(f) paste(readLines(f), collapse = " ") )
+
+str(DICKENS_texts_collapsed, nchar.max = 90)
+@
+
+The whole corpus as a single string
+<<>>=
+DICKENS_all_text <- paste(unlist(lapply(corpus_filepaths_all('dickens'), readLines)), collapse = " ")
+
+str(DICKENS_all_text, nchar.max = 90)
+@
+
+\subsection{Getting a subset of a corpus into R}
+The \textCode{corpus\_filepath} function can accept multiple titles so you can simply just manually create a vector of titles, or you could filter using the supplied metadata
+<<>>=
+early_novels <- with(ncnb, ncnb[year < 1850, 'title'])
+
+early_novels
+
+NCNB_early_texts <- lapply(corpus_filepath(early_novels, corpus = 'ncnb'), readLines)
+
+str(NCNB_early_texts)
+@
+
+\subsection{Tokenizing corpus texts}
+\textCode{R} has many packages that can help you do this and a good place to start looking for one is the Natural Language Processing CRAN page at \url{https://cran.r-project.org/web/views/NaturalLanguageProcessing.html}.
+
+To get you started the \textCode{stringi} package\footnote{\url{https://cran.r-project.org/web/packages/stringi/index.html}} has some good implementations of \textit{text boundary functions}\footnote{\url{http://userguide.icu-project.org/boundaryanalysis}}.
+<<>>=
+library(CorporaCorpus)
+library(stringi)
+
+GE_text <- readLines(corpus_filepath('Great Expectations', corpus = 'dickens'))
+GE_tokens <- unlist(stri_extract_all_words(stri_trans_tolower(GE_text)))
+
+head(GE_tokens, 50)
+@
+Notice that blank lines have become \textCode{NA} and that all punctuation is gone.
+
+\section{Corpora Content}
+\subsection{What texts are in each corpus?}
+The corpora content is detailed in the `Corpora' vignette.
+
+There is also a \textCode{data.frame} of metadata for each corpus.
+For example to see the metadata for the `Nineteenth Century Novels (British)' corpus
+<<>>=
+ncnb
+@
+
+
+
+\subsection{How have the corpus files been ``cleaned''?}
+The sources were the Gutenberg plain Text UTF-8 files.
+These were converted to 7-bit ASCII\footnote{\url{https://tools.ietf.org/html/rfc20}} printable characters and ``cleaned''.
+7-bit ASCII is a subset of UTF-8\footnote{\url{https://tools.ietf.org/html/rfc3629}} and so the files may be treated as UTF-8.
+Conversion to 7-bit ASCII standardizes the use of hyphens, apostrophes and quotes across the texts.
+
+The process followed for each text was as follows:
+\begin{itemize}
+    \item Texts were converted to ASCII using Version 1.30 of the Perl module
+        \textCode{Text::Unidecode}\footnote{\url{http://search.cpan.org/perldoc?Text::Unidecode}}
+        \begin{Scode}
+            perl -C -MText::Unidecode -n -i -e'print unidecode($_)' *.txt
+        \end{Scode}
+    \item Multiple consecutive hyphens replaced by a single space.
+        These are generally used in typesetting speech.
+        \begin{Scode}
+            perl -pi -e 's/-{2,}/ /g' *.txt
+        \end{Scode}
+    \item Underscores deleted. Generally used to typeset emphasis.
+        \begin{Scode}
+            perl -pi -e 's/_//g' *.txt
+        \end{Scode}
+    \item Gutenberg specific text (license etc), editors notes and any table of contents removed manually.
+\end{itemize}
+
+
+\end{document}

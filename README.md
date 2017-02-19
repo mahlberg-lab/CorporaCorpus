@@ -16,26 +16,40 @@ A very simple example of usage
 
     > library(CorporaCorpus)
 
-    > dickens
-                                                title date_start   date_end serialization_period             publication
-    PP                            The Pickwick Papers 1836-04-01 1837-11-01              monthly         Monthly numbers
-    OT                                   Oliver Twist 1837-02-01 1839-04-01              monthly    Bentley's Miscellany
-    NN                              Nicholas Nickleby 1838-04-01 1839-10-01              monthly         Monthly numbers
-    OCS                        The Old Curiosity Shop 1840-04-25 1841-02-06               weekly Master Humphrey's Clock
-    BR  Barnaby Rudge: A Tale of the Riots of 'Eighty 1841-02-13 1841-11-27               weekly Master Humphrey's Clock
-    MC                              Martin Chuzzlewit 1843-01-01 1844-07-01              monthly         Monthly numbers
-    DS                                 Dombey and Son 1846-10-01 1848-04-01              monthly         Monthly numbers
-    DC                              David Copperfield 1849-05-01 1850-11-01              monthly         Monthly numbers
-    BH                                    Bleak House 1852-03-01 1853-09-01              monthly         Monthly numbers
-    HT                                     Hard Times 1854-04-01 1854-08-12               weekly         Household Words
-    LD                                  Little Dorrit 1855-12-01 1857-06-01              monthly         Monthly numbers
-    TTC                          A Tale of Two Cities 1859-04-30 1859-11-26               weekly      All the Year Round
-    GE                             Great Expectations 1860-12-01 1861-08-03               weekly      All the Year Round
-    OMF                             Our Mutual Friend 1864-05-01 1865-11-01              monthly         Monthly numbers
-    MED                    The Mystery of Edwin Drood 1870-04-01 1870-09-01              monthly         Monthly numbers
+    > corpus_metadata('19C')
+                                 author                                       title year
+    pride                   Jane Austen                         Pride and Prejudice 1813
+    emma                    Jane Austen                                        Emma 1815
+    frank   Mary Wollstonecraft Shelley     Frankenstein; or, The Modern Prometheus 1818
+    persu                   Jane Austen                                  Persuasion 1818
+    vivian            Benjamin Disraeli                                 Vivian Grey 1826
+    pomp           Edward Bulwer-Lytton                    The Last Days of Pompeii 1834
+    sybil             Benjamin Disraeli                  Sybil; Or, The Two Nations 1845
+    agnes                   Anne Bronte                                 Agness Grey 1847
+    jane               Charlotte Bronte                                   Jane Eyre 1847
+    vanity  William Makepeace Thackeray                                 Vanity Fair 1847
+    wuth                   Emily Bronte                           Wuthering Heights 1847
+    mary     Elizabeth Cleghorn Gaskell                                 Mary Barton 1848
+    anto                 Wilkie Collins              Antonina; or, The Fall of Rome 1850
+    cran     Elizabeth Cleghorn Gaskell                                    Cranford 1851
+    north    Elizabeth Cleghorn Gaskell                             North and South 1855
+    prof               Charlotte Bronte                               The Professor 1857
+    woman                Wilkie Collins                          The Woman in White 1859
+    mill                   George Eliot                       The Mill on the Floss 1860
+    alli               Anthony Trollope                The Small House at Allington 1862
+    audley       Mary Elizabeth Braddon                        Lady Audley's Secret 1862
+    arma                 Wilkie Collins                                    Armadale 1864
+    deronda                George Eliot                              Daniel Deronda 1876
+    native                 Thomas Hardy                    The Return of the Native 1878
+    jekyll       Robert Louis Stevenson The Strange Case of Dr. Jekyll and Mr. Hyde 1886
+    dorian                  Oscar Wilde                  The Picture of Dorian Gray 1890
+    tess                   Thomas Hardy     Tess of the d'Urbervilles: A Pure Woman 1892
+    jude                   Thomas Hardy                            Jude the Obscure 1896
+    dracula                 Bram Stoker                                    Dracular 1897
+    basker           Arthur Conan Doyle               The Hound of the Baskervilles 1901
 
 
-    > GE_text <- readLines(corpus_filepath('Great Expectations', corpus = 'dickens'))
+    > GE_text <- readLines(corpus_filepaths('DCorp', title = 'Great Expectations'))
 
     > head(GE_text, 15)
      [1] "GREAT EXPECTATIONS"                                                     
@@ -55,7 +69,7 @@ A very simple example of usage
     [15] "of either of them (for their days were long before the days of"         
 
 
-    > DICKENS_texts <- lapply(corpus_filepaths_all('dickens'), readLines)
+    > DICKENS_texts <- lapply(corpus_filepaths('DCorp'), readLines)
 
     > str(DICKENS_texts, nchar.max = 90)
     List of 15

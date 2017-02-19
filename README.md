@@ -6,10 +6,10 @@ A collection of small corpora prepared by the [Centre for Corpus Research](http:
 Corpora
 -------
 
-| | |
+| Corpus| Description |
 | ---: | :--- |
-| **dickens** | Dickens' novels |
-| **ncnb** | 19th Century Novels (British) |
+| **DCorp** | Dickens' novels |
+| **19C** | 19th Century Novels |
 
 A very simple example of usage
 ------------------------------

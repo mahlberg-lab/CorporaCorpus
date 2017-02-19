@@ -13,15 +13,16 @@
 
 \section{Using the corpora}
 
-\subsection{Getting a corpus file into R}
+\subsection{Getting a single corpus text into R}
 Use the \textCode{readLines} function.
 <<>>=
 library(CorporaCorpus)
 
-GE_text <- readLines( corpus_filepath('Great Expectations', corpus = 'dickens') )
+GE_text <- readLines( corpus_filepaths('DCorp', 'Great Expectations') )
 
 head(GE_text, 20)
 @
+
 Notice that \textCode{readLines} returns a vector of character strings, with one element per line in the file.
 If you want the whole file in a single character string you can \textCode{paste} them together.
 
@@ -32,39 +33,40 @@ str(GE_text_collapsed, nchar.max = 99)
 @
 
 \subsection{Getting a whole corpus into R}
-What you plan to do with the texts will decide on how you do this, but you will probably need to use the \textCode{corpus\_filepaths\_all} function.
+What you plan to do with the texts will decide on how you do this, but you will probably need to do something like this
 
 A list of texts as vectors of lines
 <<>>=
-DICKENS_texts <- lapply(corpus_filepaths_all('dickens'), readLines)
+DICKENS_texts <- lapply(corpus_filepaths('DCorp'), readLines)
 
 str(DICKENS_texts)
 @
 
 Texts as collapsed strings
 <<>>=
-DICKENS_texts_collapsed <- lapply(corpus_filepaths_all('dickens'), FUN = function(f) paste(readLines(f), collapse = " ") )
+DICKENS_texts_collapsed <- lapply(corpus_filepaths('DCorp'), FUN = function(f) paste(readLines(f), collapse = " ") )
 
 str(DICKENS_texts_collapsed, nchar.max = 90)
 @
 
 The whole corpus as a single string
 <<>>=
-DICKENS_all_text <- paste(unlist(lapply(corpus_filepaths_all('dickens'), readLines)), collapse = " ")
+DICKENS_all_text <- paste(unlist(lapply(corpus_filepaths('DCorp'), readLines)), collapse = " ")
 
 str(DICKENS_all_text, nchar.max = 90)
 @
 
 \subsection{Getting a subset of a corpus into R}
-The \textCode{corpus\_filepath} function can accept multiple titles so you can simply just manually create a vector of titles, or you could filter using the supplied metadata
+The \textCode{corpus\_filepaths} function accepts multiple titles so you can simply just manually create a vector of titles, or you could filter using the supplied metadata
 <<>>=
-early_novels <- with(ncnb, ncnb[year < 1850, 'title'])
+metadata <- corpus_metadata('19C')
+early_novels <- with(metadata, metadata[year < 1850, 'title'])
 
 early_novels
 
-NCNB_early_texts <- lapply(corpus_filepath(early_novels, corpus = 'ncnb'), readLines)
+early_novel_texts <- lapply(corpus_filepaths('19C', title = early_novels), readLines)
 
-str(NCNB_early_texts)
+str(early_novel_texts)
 @
 
 \subsection{Tokenizing corpus texts}
@@ -75,7 +77,7 @@ To get you started the \textCode{stringi} package\footnote{\url{https://cran.r-p
 library(CorporaCorpus)
 library(stringi)
 
-GE_text <- readLines(corpus_filepath('Great Expectations', corpus = 'dickens'))
+GE_text <- readLines(corpus_filepaths('DCorp', 'Great Expectations'))
 GE_tokens <- unlist(stri_extract_all_words(stri_trans_tolower(GE_text)))
 
 head(GE_tokens, 50)
@@ -86,10 +88,11 @@ Notice that blank lines have become \textCode{NA} and that all punctuation is go
 \subsection{What texts are in each corpus?}
 The corpora content is detailed in the `Corpora' vignette.
 
-There is also a \textCode{data.frame} of metadata for each corpus.
-For example to see the metadata for the `Nineteenth Century Novels (British)' corpus
+Also the \textCode{corpus\_metadata()} function returns a \textCode{data.frame} of basic metadata for each corpus.
+For example to see the metadata for the `19C' corpus
 <<>>=
-ncnb
+
+corpus_metadata('19C')
 @
 
 

@@ -5,22 +5,55 @@
 
 \title{A collection of small corpora prepared by the Centre for Corpus Research}
 \description{
-    This package is a container for the following corpora
-    \tabular{ll}{
-        Name \tab Description \cr
-        \code{\link{dickens}} \tab Dickens' novels \cr
-        \code{\link{ncnb}} \tab 19th Century Novels (British)
-    }
+    The package contains a collection of small corpora prepared by the
+    \href{http://www.birmingham.ac.uk/research/activity/corpus/}{Centre for Corpus Research}.
 }
 \details{
-    The corpora are prepared in such a manner as to simplify analysis using R.
-    Details of editing and homogenization of typesetting can be found in the
-    \href{../doc/faq.pdf}{FAQ} vignette.
-
+    This package contains the following corpora
+    \tabular{ll}{
+        Name \tab Description \cr
+        \code{DCorp} \tab Dickens' novels \cr
+        \code{19C} \tab 19th Century Novels
+    }
     The content of each corpus is documented in detail in the
     \href{../doc/corpora.pdf}{Corpora} vignette.
+    Basic metadata for the corpus texts is provided in the form of
+    a \code{data.frame} returned by the \code{\link{corpus_metadata}}
+    function.
+
+    The texts have been processed in such a way as to facilitate
+    tokenization and to simplify analysis.
+    See the \href{../doc/faq.pdf}{FAQ vignette}
+    for full details of how the texts were prepared.
+
+    The function \code{\link{corpus_filepaths}}
+    return file paths to the novels texts; the locations of which are
+    not always transparent to the user.
 
     For a list of all documentation use \code{library(help="CorporaCorpus")}.
+}
+
+\source{
+    For details of the individual texts see the
+    \href{../doc/corpora.pdf}{Corpora vignette}.
+
+    \subsection{DCorp}{
+        \sQuote{Books by Charles Dickens} at
+        \href{https://www.gutenberg.org}{\sQuote{Project Gutenberg}}.
+        \dQuote{Plain Text UTF-8} files. Retrieved from
+        \url{https://www.gutenberg.org/ebooks/author/37} on 2016-11-27.
+
+        All texts are covered by the Project Gutenberg License. A copy of
+        the full license can be found at \url{http://gutenberg.org/license}.
+    }
+    \subsection{19C}{
+        All novel texts where sourced from the
+        \href{https://www.gutenberg.org}{\sQuote{Project Gutenberg}},
+        \dQuote{Plain Text UTF-8} files and were retrieved on 2017-02-02.
+
+        All texts are covered by the Project Gutenberg License. A copy of
+        the full license can be found at \url{http://gutenberg.org/license}.
+    }
 }
 
 \author{

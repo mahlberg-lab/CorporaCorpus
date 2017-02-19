@@ -2,8 +2,8 @@ Encoding: UTF-8
 Package: CorporaCorpus
 Type: Package
 Title: A collection of small corpora prepared by the Centre for Corpus Research
-Version: 0.2-0
-Date: 2017-02-16
+Version: 0.3-0
+Date: 2017-02-19
 Authors@R:
     c(person('Anthony','Hennessey',email='ah@ravingmantis.com',role=c('aut','cre')),
     person('Viola','Wiegand',email='v.wiegand@bham.ac.uk',role='aut'),

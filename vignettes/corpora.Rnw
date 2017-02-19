@@ -11,20 +11,20 @@
 
 \tableofcontents
 
-\section{Dickens' Novels}
+\section{DCorp - Dickens' Novels}
 \subsection{Included texts}
 \nocite{*}
-\printbibliography[heading=none,keyword=DICKENS]
+\printbibliography[heading=none,keyword=DCorp]
 
 \subsection{License}
 All of texts are covered by the Project Gutenberg License.
 A copy of the full license can be found at \url{http://gutenberg.org/license}.
 
 
-\section{Nineteenth Century Novels (British)}
+\section{19C - Nineteenth Century Novels}
 \subsection{Included texts}
 \nocite{*}
-\printbibliography[heading=none,keyword=NCNB]
+\printbibliography[heading=none,keyword=19C]
 
 \subsection{License}
 All of texts are covered by the Project Gutenberg License.

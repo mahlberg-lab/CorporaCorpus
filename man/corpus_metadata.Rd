@@ -16,7 +16,7 @@
 \arguments{
     \item{corpus}{
         The name of the corpus.
-        Can be \sQuote{DCorp} or \sQuote{19C}.
+        Can be \sQuote{DNov} or \sQuote{19C}.
     }
 }
 
@@ -33,5 +33,5 @@
 }
 
 \examples{
-    df <- corpus_metadata('DCorp')
+    df <- corpus_metadata('DNov')
 }

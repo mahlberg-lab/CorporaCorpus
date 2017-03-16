@@ -15,7 +15,7 @@
 \arguments{
     \item{corpus}{
         The name of the corpus.
-        Can be \sQuote{DCorp} or \sQuote{19C}.
+        Can be \sQuote{DNov} or \sQuote{19C}.
     }
     \item{title}{
         Either a character string or a vector of character strings
@@ -35,10 +35,10 @@
 }
 
 \examples{
-    all_paths <- corpus_filepaths('DCorp')
+    all_paths <- corpus_filepaths('DNov')
 
-    some_paths <- corpus_filepaths('DCorp', title = c('Great Expectations', 'A Tale of Two Cities'))
+    some_paths <- corpus_filepaths('DNov', title = c('Great Expectations', 'A Tale of Two Cities'))
 
-    a_path <- corpus_filepaths('DCorp', title = 'GE')
+    a_path <- corpus_filepaths('DNov', title = 'GE')
 
 }

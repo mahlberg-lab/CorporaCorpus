@@ -8,8 +8,8 @@ Corpora
 
 | Corpus| Description |
 | ---: | :--- |
-| **DCorp** | Dickens' novels |
-| **19C** | 19th Century Novels |
+| DNov | Dickens' novels |
+| 19C | 19th Century Novels |
 
 A very simple example of usage
 ------------------------------
@@ -49,7 +49,7 @@ A very simple example of usage
     basker           Arthur Conan Doyle               The Hound of the Baskervilles 1901
 
 
-    > GE_text <- readLines(corpus_filepaths('DCorp', title = 'Great Expectations'))
+    > GE_text <- readLines(corpus_filepaths('DNov', title = 'Great Expectations'))
 
     > head(GE_text, 15)
      [1] "GREAT EXPECTATIONS"                                                     
@@ -69,7 +69,7 @@ A very simple example of usage
     [15] "of either of them (for their days were long before the days of"         
 
 
-    > DICKENS_texts <- lapply(corpus_filepaths('DCorp'), readLines)
+    > DICKENS_texts <- lapply(corpus_filepaths('DNov'), readLines)
 
     > str(DICKENS_texts, nchar.max = 90)
     List of 15

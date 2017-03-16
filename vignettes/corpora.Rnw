@@ -11,10 +11,10 @@
 
 \tableofcontents
 
-\section{DCorp - Dickens' Novels}
+\section{DNov - Dickens' Novels}
 \subsection{Included texts}
 \nocite{*}
-\printbibliography[heading=none,keyword=DCorp]
+\printbibliography[heading=none,keyword=DNov]
 
 \subsection{License}
 All of texts are covered by the Project Gutenberg License.

@@ -12,7 +12,7 @@
     This package contains the following corpora
     \tabular{ll}{
         Name \tab Description \cr
-        \code{DCorp} \tab Dickens' novels \cr
+        \code{DNov} \tab Dickens' novels \cr
         \code{19C} \tab 19th Century Novels
     }
     The content of each corpus is documented in detail in the
@@ -37,7 +37,7 @@
     For details of the individual texts see the
     \href{../doc/corpora.pdf}{Corpora vignette}.
 
-    \subsection{DCorp}{
+    \subsection{DNov}{
         \sQuote{Books by Charles Dickens} at
         \href{https://www.gutenberg.org}{\sQuote{Project Gutenberg}}.
         \dQuote{Plain Text UTF-8} files. Retrieved from

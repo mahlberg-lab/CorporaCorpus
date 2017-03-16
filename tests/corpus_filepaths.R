@@ -8,17 +8,17 @@ ok_group("whole corpus", {
     ok( identical(names(got), row.names(corpus_metadata('19C'))), "19C - name attributes")
 
     expected_regex <- 'CorporaCorpus.extdata.content.[A-Z]+\\.txt\\.gz$'
-    got <- corpus_filepaths(corpus = 'DCorp')
-    ok( length(got) == 15 & all(grepl(expected_regex, got)), "DCorp")
-    ok( identical(names(got), row.names(corpus_metadata('DCorp'))), "DCorp - name attributes")
+    got <- corpus_filepaths(corpus = 'DNov')
+    ok( length(got) == 15 & all(grepl(expected_regex, got)), "DNov")
+    ok( identical(names(got), row.names(corpus_metadata('DNov'))), "DNov - name attributes")
 })
 
 ok_group("sub-corpus", {
     expected_regex <- 'CorporaCorpus.extdata.content.TTC\\.txt\\.gz$'
-    got <- corpus_filepaths(corpus = 'DCorp', title = 'TTC')
-    ok( length(got) == 1 & grepl(expected_regex, got), "TTC - DCorp")
-    got <- corpus_filepaths(corpus = 'DCorp', title = 'A Tale of Two Cities')
-    ok( length(got) == 1 & grepl(expected_regex, got), "A Tale of Two Cities - DCorp")
+    got <- corpus_filepaths(corpus = 'DNov', title = 'TTC')
+    ok( length(got) == 1 & grepl(expected_regex, got), "TTC - DNov")
+    got <- corpus_filepaths(corpus = 'DNov', title = 'A Tale of Two Cities')
+    ok( length(got) == 1 & grepl(expected_regex, got), "A Tale of Two Cities - DNov")
 
     expected_regex <- 'CorporaCorpus.extdata.content.mill\\.txt\\.gz$'
     got <- corpus_filepaths('19C', 'the mill')
@@ -28,16 +28,16 @@ ok_group("sub-corpus", {
     got <- corpus_filepaths(corpus = '19C', title = 'the mill on the floss')
     ok( length(got) == 1 & grepl(expected_regex, got), "title - the mill on the floss")
 
-    got <- corpus_filepaths(c('TTC', 'GE'), corpus = 'DCorp')
+    got <- corpus_filepaths(c('TTC', 'GE'), corpus = 'DNov')
     ok( length(got) == 2 & grepl('TTC\\.txt\\.gz$', got[1]) & grepl('GE\\.txt\\.gz$', got[2]), "multiple titles - TTC and GE")
     ok( identical(names(got), c('TTC', 'GE')), "multiple titles - name attributes")
     
-    got <- corpus_filepaths(c('Bleak', 'LD'), corpus = 'DCorp')
+    got <- corpus_filepaths(c('Bleak', 'LD'), corpus = 'DNov')
     ok( length(got) == 2 & grepl('BH\\.txt\\.gz$', got[1]) & grepl('LD\\.txt\\.gz$', got[2]), "multiple titles - Bleak and LD")
 })
 
 ok_group("the files", {
-    ok( all(file.exists(corpus_filepaths('DCorp'))), "DCorp - all files exist")
+    ok( all(file.exists(corpus_filepaths('DNov'))), "DNov - all files exist")
     ok( all(file.exists(corpus_filepaths('19C'))), "19C - all files exist")
 
     got <- readLines(corpus_filepaths('19C', "mill"))

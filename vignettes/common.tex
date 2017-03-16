@@ -29,16 +29,16 @@
 
 %% bibliography
 \usepackage{nameref}
+\usepackage[british]{babel}
 \usepackage[
-    style=chicago-authordate,
+    style=apa,
     backend=biber,
     url=true, 
     doi=false,
     eprint=false,
-    bibencoding=utf8,
-    maxbibnames=3,
-    maxcitenames=2
+    bibencoding=utf8
 ]{biblatex}
+\DeclareLanguageMapping{british}{british-apa}
 \addbibresource{CorporaCorpus.bib}
 
 % ==

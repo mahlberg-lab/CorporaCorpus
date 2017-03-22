@@ -39,6 +39,7 @@
     bibencoding=utf8
 ]{biblatex}
 \DeclareLanguageMapping{british}{british-apa}
+\DeclareFieldFormat{apacase}{#1}  % otherwise apa sentence cases
 \addbibresource{CorporaCorpus.bib}
 
 % ==
@@ -57,7 +58,7 @@
 
 <<echo=false>>=
     options(width = 100)
-    options(continue = ' ', prompt = ' ')
+    options(continue = ' ', prompt = '  ')
 @
 
 

@@ -3,7 +3,7 @@
 \alias{CorporaCorpus}
 \docType{package}
 
-\title{A collection of small corpora prepared by the Centre for Corpus Research}
+\title{A Collection of Small Corpora Prepared by the Centre for Corpus Research}
 \description{
     The package contains a collection of small corpora prepared by the
     \href{http://www.birmingham.ac.uk/research/activity/corpus/}{Centre for Corpus Research}.
@@ -40,6 +40,7 @@
     \subsection{DNov}{
         \sQuote{Novels by Charles Dickens} at
         \href{https://www.gutenberg.org}{\sQuote{Project Gutenberg}}.
+              https://www.gutenberg.org/
         \dQuote{Plain Text UTF-8} files. Retrieved from
         \url{https://www.gutenberg.org/ebooks/author/37} on 2016-11-27.
 
@@ -52,7 +53,7 @@
         \dQuote{Plain Text UTF-8} files and were retrieved on 2017-02-02.
 
         All texts are covered by the Project Gutenberg License. A copy of
-        the full license can be found at \url{http://gutenberg.org/license}.
+        the full license can be found at \url{https://gutenberg.org/license}.
     }
 }
 

@@ -1,7 +1,7 @@
 Encoding: UTF-8
 Package: CorporaCorpus
 Type: Package
-Title: A collection of small corpora prepared by the Centre for Corpus Research
+Title: A Collection of Small Corpora Prepared by the Centre for Corpus Research
 Version: 1.0-0
 Date: 2017-03-22
 Authors@R:

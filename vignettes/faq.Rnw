@@ -84,6 +84,13 @@ head(GE_tokens, 50)
 @
 Notice that blank lines have become \textCode{NA} and that all punctuation is gone.
 
+You have to be a little careful using \textCode{unlist} on lists of vectors, but should you want to tokenize the whole corpus into a single vector you could try something like this
+<<>>=
+DICKENS_tokens <- unlist(stri_extract_all_words(stri_trans_tolower(do.call(c, lapply(corpus_filepaths('DNov'), readLines)))))
+
+head(DICKENS_tokens, 50)
+@
+
 \section{Corpora Content}
 \subsection{What texts are in each corpus?}
 The corpora content is detailed in the `Corpora' vignette.
@@ -94,8 +101,6 @@ For example to see the metadata for the `19C' corpus
 
 corpus_metadata('19C')
 @
-
-
 
 \subsection{How have the corpus files been ``cleaned''?}
 The sources were the Gutenberg plain Text UTF-8 files.

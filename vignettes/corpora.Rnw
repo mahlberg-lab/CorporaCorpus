@@ -7,27 +7,28 @@
 
 \begin{document}
 
+\nocite{*}
+
 \maketitle
 
 \tableofcontents
 
 \section{DNov - Dickens' Novels}
 \subsection{Included texts}
-\nocite{*}
 \printbibliography[heading=none,keyword=DNov]
 
 \subsection{License}
 All of texts are covered by the Project Gutenberg License.
 A copy of the full license can be found at \url{http://gutenberg.org/license}.
 
-
 \section{19C - Nineteenth Century Novels}
 \subsection{Included texts}
-\nocite{*}
+This corpus content is detailed in \textcite[Page 179]{mahlberg_corpus_2013}.
 \printbibliography[heading=none,keyword=19C]
 
 \subsection{License}
 All of texts are covered by the Project Gutenberg License.
 A copy of the full license can be found at \url{http://gutenberg.org/license}.
 
+\printbibliography[heading=bibintoc,keyword=ref]
 \end{document}

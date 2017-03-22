@@ -38,7 +38,7 @@
     \href{../doc/corpora.pdf}{Corpora vignette}.
 
     \subsection{DNov}{
-        \sQuote{Books by Charles Dickens} at
+        \sQuote{Novels by Charles Dickens} at
         \href{https://www.gutenberg.org}{\sQuote{Project Gutenberg}}.
         \dQuote{Plain Text UTF-8} files. Retrieved from
         \url{https://www.gutenberg.org/ebooks/author/37} on 2016-11-27.

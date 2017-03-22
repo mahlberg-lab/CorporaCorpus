@@ -91,6 +91,32 @@ DICKENS_tokens <- unlist(stri_extract_all_words(stri_trans_tolower(do.call(c, la
 head(DICKENS_tokens, 50)
 @
 
+\subsection{Displaying concordances}
+Again we point you to the Natural Language Processing CRAN page at \url{https://cran.r-project.org/web/views/NaturalLanguageProcessing.html},
+but since we have got this far just using the \textCode{stringi} package\footnote{\url{https://cran.r-project.org/web/packages/stringi/index.html}}.
+We just need to hang on to an intermediate stage of the tokenizing process.
+<<>>=
+library(CorporaCorpus)
+library(stringi)
+
+BH_text <- readLines(corpus_filepaths('DNov', 'Bleak House'))
+BH_text_collapsed <- paste(BH_text, collapse = " ")  # the text from which we extract the concordances
+BH_tokens <- unlist(stri_extract_all_words(stri_trans_tolower(BH_text_collapsed)))
+
+# find the concordances for the node 'fog'
+node = 'fog'
+cc <- vapply(X = which(BH_tokens == node), FUN.VALUE = character(3), FUN = function(x, Z, n) {
+    c(
+        substr(x = BH_text_collapsed, start = Z[[1]][max(x - n, 1), 1], stop = Z[[1]][x, 1] - 1),
+        substr(x = BH_text_collapsed, start = Z[[1]][x, 1], stop = Z[[1]][x, 2]),
+        substr(x = BH_text_collapsed, start = Z[[1]][x, 2] + 1, stop = Z[[1]][min(x + n, nrow(Z[[1]])), 2])
+    )
+}, Z = stri_locate_all_words(BH_text_collapsed), n = 7)  # n is the number of words of context
+
+# print using the usual formatting
+noquote(sprintf(paste0("%", max(nchar(cc[1,])), "s%", max(nchar(cc[2,])), "s%-", max(nchar(cc[3,])), "s"), cc[1,], cc[2,], cc[3,]))
+@
+
 \section{Corpora Content}
 \subsection{What texts are in each corpus?}
 The corpora content is detailed in the `Corpora' vignette.

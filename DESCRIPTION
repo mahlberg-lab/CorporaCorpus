@@ -3,7 +3,7 @@ Package: CorporaCorpus
 Type: Package
 Title: A Collection of Small Corpora Prepared by the Centre for Corpus Research
 Version: 1.0-0
-Date: 2017-03-22
+Date: 2017-03-23
 Authors@R:
     c(person('Anthony','Hennessey',email='ah@ravingmantis.com',role=c('aut','cre')),
     person('Viola','Wiegand',email='v.wiegand@bham.ac.uk',role='aut'),

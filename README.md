@@ -93,7 +93,41 @@ A very simple example of usage
 Installing from CRAN
 ====================
 
-This package is very new and not really production ready; as a result it has not yet been submitted to CRAN.
+This package is not available on CRAN as it exceeds their 5MB size limit for data packages.
+
+Installing the latest stable version directly from GitHub
+=========================================================
+
+Linux
+-----
+
+In an R session type:
+
+    pkg_file <- tempfile()
+    download.file(url = 'https://github.com/ravingmantis/CorporaCoCo/archive/v1.0-0.tar.gz', mode = 'wb', method = 'wget', destfile = pkg_file)
+    install.packages(pkg_file, repos = NULL, type = 'source')
+
+Mac OSX / Windows
+-----------------
+
+``download.file`` may not support fetching ``https`` URLs. Alternatively, you
+can use the the CRAN package [downloader](https://CRAN.R-project.org/package=downloader)
+to fetch the archive instead:
+
+    # install.packages("downloader")
+    pkg_file <- tempfile()
+    downloader::download(url = 'https://github.com/ravingmantis/CorporaCoCo/archive/v1.0-0.tar.gz', mode = 'wb', destfile = pkg_file)
+    install.packages(pkg_file, repos = NULL, type = 'source')
+
+Alternatively use the `devtools` CRAN package
+---------------------------------------------
+
+If you have the CRAN package [devtools](https://CRAN.R-project.org/package=devtools)
+you can use this to install directly from github:
+
+    # install.packages("devtools")
+    devtools::install_github("ravingmantis/CorporaCoCo", ref = "v1.0-0")
+`
 
 Installing the latest development version directly from GitHub
 ==============================================================
@@ -111,7 +145,7 @@ Mac OSX / Windows
 -----------------
 
 ``download.file`` may not support fetching ``https`` URLs. Alternatively, you
-can use the the CRAN package [downloader](http://CRAN.R-project.org/package=downloader)
+can use the the CRAN package [downloader](https://CRAN.R-project.org/package=downloader)
 to fetch the archive instead:
 
     # install.packages("downloader")
@@ -122,7 +156,7 @@ to fetch the archive instead:
 Alternatively use the `devtools` CRAN package
 ---------------------------------------------
 
-If you have the CRAN package [devtools](http://CRAN.R-project.org/package=devtools)
+If you have the CRAN package [devtools](https://CRAN.R-project.org/package=devtools)
 you can use this to install directly from github:
 
     # install.packages("devtools")

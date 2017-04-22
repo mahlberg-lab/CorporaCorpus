@@ -20,5 +20,5 @@ Imports:
 Suggests: 
     unittest,
     stringi
-BugReports: https://github.com/ravingmantis/CorporaCorpus/issues
+BugReports: https://github.com/birmingham-ccr/CorporaCorpus/issues
 LazyData: yes

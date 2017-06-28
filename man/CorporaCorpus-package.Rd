@@ -13,7 +13,8 @@
     \tabular{ll}{
         Name \tab Description \cr
         \code{DNov} \tab Dickens' novels \cr
-        \code{19C} \tab 19th Century Novels
+        \code{19C} \tab 19th Century Novels \cr
+        \code{ChiLit} \tab Children's Literature
     }
     The content of each corpus is documented in detail in the
     \href{../doc/corpora.pdf}{Corpora} vignette.
@@ -44,7 +45,7 @@
         \dQuote{Plain Text UTF-8} files. Retrieved from
         \url{https://www.gutenberg.org/ebooks/author/37} on 2016-11-27.
 
-        All texts are covered by the Project Gutenberg License. A copy of
+        All texts retrieved from Project Gutenberg. A copy of
         the full license can be found at \url{http://gutenberg.org/license}.
     }
     \subsection{19C}{
@@ -52,8 +53,16 @@
         \href{https://www.gutenberg.org}{\sQuote{Project Gutenberg}},
         \dQuote{Plain Text UTF-8} files and were retrieved on 2017-02-02.
 
-        All texts are covered by the Project Gutenberg License. A copy of
-        the full license can be found at \url{https://gutenberg.org/license}.
+        All texts retrieved from Project Gutenberg. A copy of
+        the full license can be found at \url{http://gutenberg.org/license}.
+    }
+    \subsection{ChiLit}{
+        All novel texts where sourced from the
+        \href{https://www.gutenberg.org}{\sQuote{Project Gutenberg}},
+        \dQuote{Plain Text UTF-8} files and were retrieved on 2017-06-28.
+
+        All texts retrieved from Project Gutenberg. A copy of
+        the full license can be found at \url{http://gutenberg.org/license}.
     }
 }
 

@@ -11,6 +11,11 @@ ok_group("whole corpus", {
     got <- corpus_filepaths(corpus = 'DNov')
     ok( length(got) == 15 & all(grepl(expected_regex, got)), "DNov")
     ok( identical(names(got), row.names(corpus_metadata('DNov'))), "DNov - name attributes")
+
+    expected_regex <- 'CorporaCorpus.extdata.content.[a-z]+\\.txt\\.gz$'
+    got <- corpus_filepaths(corpus = 'ChiLit')
+    ok( length(got) == 26 & all(grepl(expected_regex, got)), "ChiLit")
+    ok( identical(names(got), row.names(corpus_metadata('ChiLit'))), "ChiLit - name attributes")
 })
 
 ok_group("sub-corpus", {
@@ -39,6 +44,7 @@ ok_group("sub-corpus", {
 ok_group("the files", {
     ok( all(file.exists(corpus_filepaths('DNov'))), "DNov - all files exist")
     ok( all(file.exists(corpus_filepaths('19C'))), "19C - all files exist")
+    ok( all(file.exists(corpus_filepaths('ChiLit'))), "ChiLit - all files exist")
 
     got <- readLines(corpus_filepaths('19C', "mill"))
     ok( grepl('The Mill on the Floss', got[1], ignore.case = TRUE), "reedLines - F - novel file got and text looks good")

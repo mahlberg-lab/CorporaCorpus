@@ -15,7 +15,7 @@
 \arguments{
     \item{corpus}{
         The name of the corpus.
-        Can be \sQuote{DNov} or \sQuote{19C}.
+        Can be \sQuote{DNov}, \sQuote{19C} or \sQuote{ChiLit}.
     }
     \item{title}{
         Either a character string or a vector of character strings

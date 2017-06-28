@@ -14,21 +14,21 @@
 \tableofcontents
 
 \section{DNov - Dickens' Novels}
+All original texts downloaded from Project Gutenberg.
 \subsection{Included texts}
 \printbibliography[heading=none,keyword=DNov]
 
-\subsection{License}
-All of texts are covered by the Project Gutenberg License.
-A copy of the full license can be found at \url{http://gutenberg.org/license}.
-
 \section{19C - Nineteenth Century Novels}
+All original texts downloaded from Project Gutenberg.
 \subsection{Included texts}
 This corpus content is detailed in \textcite[Page 179]{mahlberg_corpus_2013}.
 \printbibliography[heading=none,keyword=19C]
 
-\subsection{License}
-All of texts are covered by the Project Gutenberg License.
-A copy of the full license can be found at \url{http://gutenberg.org/license}.
+\section{ChilLit - Children's Literature}
+From work by Anna Cermakova, Charles University, Prague; reference coming soon.
 
-\printbibliography[heading=bibintoc,keyword=ref]
+All original texts downloaded from Project Gutenberg.
+\subsection{Included texts}
+\printbibliography[heading=none,keyword=ChiLit]
+
 \end{document}

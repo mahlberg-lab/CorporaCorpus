@@ -6,10 +6,11 @@ A collection of small corpora prepared by the [Centre for Corpus Research](http:
 Corpora
 -------
 
-| Corpus| Description |
-| ---: | :--- |
-| DNov | Dickens' novels |
-| 19C | 19th Century Novels |
+| Corpus | Description |
+| ---:   | :--- |
+| DNov   | Dickens' novels |
+| 19C    | 19th Century Novels |
+| ChiLit | Children's Literature |
 
 A very simple example of usage
 ------------------------------

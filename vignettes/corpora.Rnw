@@ -25,7 +25,7 @@ This corpus content is detailed in \textcite[Page 179]{mahlberg_corpus_2013}.
 \printbibliography[heading=none,keyword=19C]
 
 \section{ChiLit - Children's Literature}
-From work by Anna Cermakova, Charles University, Prague; reference coming soon.
+From work by Anna Čermáková, Charles University, Prague; reference coming soon.
 
 All original texts downloaded from Project Gutenberg.
 \subsection{Included texts}

@@ -2,30 +2,30 @@ library(CorporaCorpus)
 library(unittest, quietly=TRUE)
 
 ok_group("whole corpus", {
-    expected_regex <- 'CorporaCorpus.extdata.content.[a-z]+\\.txt\\.gz$'
+    expected_regex <- 'CorporaCorpus.extdata.content.[a-z]+\\.txt$'
     got <- corpus_filepaths(corpus = '19C')
     ok( length(got) == 29 & all(grepl(expected_regex, got)), "19C")
     ok( identical(names(got), row.names(corpus_metadata('19C'))), "19C - name attributes")
 
-    expected_regex <- 'CorporaCorpus.extdata.content.[A-Z]+\\.txt\\.gz$'
+    expected_regex <- 'CorporaCorpus.extdata.content.[A-Z]+\\.txt$'
     got <- corpus_filepaths(corpus = 'DNov')
     ok( length(got) == 15 & all(grepl(expected_regex, got)), "DNov")
     ok( identical(names(got), row.names(corpus_metadata('DNov'))), "DNov - name attributes")
 
-    expected_regex <- 'CorporaCorpus.extdata.content.[a-z]+\\.txt\\.gz$'
+    expected_regex <- 'CorporaCorpus.extdata.content.[a-z]+\\.txt$'
     got <- corpus_filepaths(corpus = 'ChiLit')
     ok( length(got) == 26 & all(grepl(expected_regex, got)), "ChiLit")
     ok( identical(names(got), row.names(corpus_metadata('ChiLit'))), "ChiLit - name attributes")
 })
 
 ok_group("sub-corpus", {
-    expected_regex <- 'CorporaCorpus.extdata.content.TTC\\.txt\\.gz$'
+    expected_regex <- 'CorporaCorpus.extdata.content.TTC\\.txt$'
     got <- corpus_filepaths(corpus = 'DNov', title = 'TTC')
     ok( length(got) == 1 & grepl(expected_regex, got), "TTC - DNov")
     got <- corpus_filepaths(corpus = 'DNov', title = 'A Tale of Two Cities')
     ok( length(got) == 1 & grepl(expected_regex, got), "A Tale of Two Cities - DNov")
 
-    expected_regex <- 'CorporaCorpus.extdata.content.mill\\.txt\\.gz$'
+    expected_regex <- 'CorporaCorpus.extdata.content.mill\\.txt$'
     got <- corpus_filepaths('19C', 'the mill')
     ok( length(got) == 1 & grepl(expected_regex, got), "title - the mill")
     got <- corpus_filepaths(corpus = '19C', title = 'The Mill on the Floss')
@@ -34,11 +34,11 @@ ok_group("sub-corpus", {
     ok( length(got) == 1 & grepl(expected_regex, got), "title - the mill on the floss")
 
     got <- corpus_filepaths(c('TTC', 'GE'), corpus = 'DNov')
-    ok( length(got) == 2 & grepl('TTC\\.txt\\.gz$', got[1]) & grepl('GE\\.txt\\.gz$', got[2]), "multiple titles - TTC and GE")
+    ok( length(got) == 2 & grepl('TTC\\.txt$', got[1]) & grepl('GE\\.txt$', got[2]), "multiple titles - TTC and GE")
     ok( identical(names(got), c('TTC', 'GE')), "multiple titles - name attributes")
     
     got <- corpus_filepaths(c('Bleak', 'LD'), corpus = 'DNov')
-    ok( length(got) == 2 & grepl('BH\\.txt\\.gz$', got[1]) & grepl('LD\\.txt\\.gz$', got[2]), "multiple titles - Bleak and LD")
+    ok( length(got) == 2 & grepl('BH\\.txt$', got[1]) & grepl('LD\\.txt$', got[2]), "multiple titles - Bleak and LD")
 })
 
 ok_group("the files", {
